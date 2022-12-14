@@ -43,6 +43,7 @@ module.exports = {
       ubuntu: ["Ubuntu", "sans-serif"],
     },
     fontSize: {
+      xs: ".75rem",
       sm: ".875rem",
       base: "1rem",
       lg: "clamp(1.50rem, calc(1.32rem + 0.75vw), 2.00rem)",
@@ -51,6 +52,10 @@ module.exports = {
       regular: 400,
       medium: 500,
       bold: 700,
+    },
+    backgroundImage: {
+      sidebarDesktop: "url(./images/bg-sidebar-desktop.svg)",
+      sidebarMobile: "url(./images/bg-sidebar-mobile.svg)",
     },
     extend: {},
   },
