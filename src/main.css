@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  @apply bg-magnolia;
+}
+
+#root {
+  @apply min-h-screen font-ubuntu lg:grid lg:place-content-center;
+}
