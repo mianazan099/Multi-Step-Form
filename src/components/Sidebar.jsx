@@ -1,27 +1,10 @@
-import SidebarStep from "./SidebarStep";
+import SidebarSteps from "./SidebarSteps";
 
-const sidebarStep = [
-  { num: 1, name: "Your info", active: true },
-  { num: 2, name: "Select Plan", active: false },
-  { num: 3, name: "Add-ons", active: false },
-  { num: 4, name: "Summary", active: false },
-];
-
-const Sidebar = () => {
+const Sidebar = ({ state }) => {
+  console.log(state.step);
   return (
-    <aside className="h-[172px] bg-sidebarMobile bg-cover bg-no-repeat lg:h-auto lg:rounded-lg lg:bg-sidebarDesktop">
-      <div className="mx-auto flex w-fit gap-1 p-2 lg:mx-0 lg:flex-col lg:gap-1.5">
-        {sidebarStep.map((step) => {
-          return (
-            <SidebarStep
-              key={step.num}
-              num={step.num}
-              name={step.name}
-              active={step.active}
-            />
-          );
-        })}
-      </div>
+    <aside className="absolute top-0 left-0 right-0 -z-10 h-[10.75rem] bg-sidebarMobile bg-cover bg-center bg-no-repeat">
+      <SidebarSteps active={state.step} />
     </aside>
   );
 };

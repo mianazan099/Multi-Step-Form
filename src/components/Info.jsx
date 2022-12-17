@@ -1,10 +1,13 @@
-import PageInfo from "./PageInfo";
 import Input from "./Input";
 
-const Info = () => (
+const Info = ({ state, dispatch }) => (
   <>
-    <PageInfo />
-    <form className="grid gap-0.75 lg:gap-1">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+      className="grid gap-0.75"
+    >
       <Input name="Name" type="text" placeholder="e.g. Stephen King" />
       <Input
         name="Email Address"
@@ -12,11 +15,22 @@ const Info = () => (
         placeholder="e.g. stephenking@lorem.com"
       />
       <Input name="Phone Number" type="tel" placeholder="e.g. +1 234 567 890" />
-      <div className="lg:ml-auto lg:mt-[4rem]">
-        <button className="rounded-md bg-blue-marine px-1 py-0.5 font-medium text-white">
+      {/* <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between bg-white p-1">
+        <button
+          className={`text-gray-cool ${state.step > 0 ? "block" : "hidden"}`}
+          onClick={() => dispatch({ type: "previous_step" })}
+        >
+          Go Back
+        </button>
+        <button
+          onClick={() => dispatch({ type: "next_step" })}
+          className={`rounded-md bg-blue-marine px-1 py-0.5 font-medium text-white ${
+            state.step < 1 ? "ml-auto block" : ""
+          }`}
+        >
           Next Step
         </button>
-      </div>
+      </div> */}
     </form>
   </>
 );

@@ -1,13 +1,41 @@
+import { useEffect, useReducer } from "react";
 import Sidebar from "./components/Sidebar";
-import Info from "./components/Info";
+import Main from "./components/Main";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "next_step": {
+      if (state.step < 3) {
+        return {
+          step: state.step + 1,
+        };
+      } else {
+        return state;
+      }
+    }
+    case "previous_step": {
+      if (state.step > 0) {
+        return {
+          step: state.step - 1,
+        };
+      } else {
+        return state;
+      }
+    }
+  }
+}
 
 const App = () => {
+  const [state, dispatch] = useReducer(reducer, { step: 0 });
+
+  useEffect(() => {
+    console.log(state);
+  }, []);
+
   return (
-    <article className="mx-auto lg:grid lg:h-[36rem] lg:w-[min(56rem,100vw-2rem)] lg:grid-cols-[1fr,2.5fr] lg:rounded-xl lg:bg-white lg:p-1 lg:pr-0">
-      <Sidebar />
-      <main className="mx-auto w-[min(28rem,100%-2rem)] rounded-lg bg-white p-1.5 lg:px-0 lg:pt-2 lg:pb-0.5">
-        <Info />
-      </main>
+    <article className="flow-root">
+      <Sidebar state={state} />
+      <Main state={state} dispatch={dispatch} />
     </article>
   );
 };
