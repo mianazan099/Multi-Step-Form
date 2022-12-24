@@ -41,5 +41,3 @@ const App = () => {
 };
 
 export default App;
-// h-[36]
-// w-[58]

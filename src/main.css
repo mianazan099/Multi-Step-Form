@@ -9,5 +9,5 @@ html {
 }
 
 #root {
-  @apply min-h-screen font-ubuntu lg:grid lg:place-content-center;
+  @apply min-h-screen font-ubuntu;
 }
