@@ -1,36 +1,3 @@
-function Input({
-  name,
-  type,
-  placeholder,
-}: {
-  name: string;
-  type: string;
-  placeholder: string;
-}) {
-  return (
-    <div className="text-sm">
-      <div className="mb-1 flex justify-between">
-        <p className="text-marineBlue">{name}</p>
-        <p className="font-medium text-strawberryRed">This field is required</p>
-      </div>
-      <input
-        className="h-12 w-[min(450px,100%)] rounded-md border-lightGray focus:border-purplishBlue "
-        type={type}
-        placeholder={placeholder}
-      />
-    </div>
-  );
-}
-
-function Heading({ head, desc }: { head: string; desc: string }) {
-  return (
-    <div className="pb-11">
-      <h1 className="mb-4 text-3xl font-bold text-marineBlue">{head}</h1>
-      <p className="text-coolGray">{desc}</p>
-    </div>
-  );
-}
-
 {
   /* <section className=""></section> */
 }
@@ -38,29 +5,8 @@ function Heading({ head, desc }: { head: string; desc: string }) {
   /* 
         <section className="px-20 pb-4 pt-11 ">
           <div>
-            <Heading
-              head={"Personal info"}
-              desc={
-                "Please provide your name, email address, and phone number."
-              }
-            />
-            <form className="flex flex-col gap-6">
-              <Input
-                name={"Name"}
-                type={"text"}
-                placeholder={"e.g. Stephen King"}
-              />
-              <Input
-                name={"Email Address"}
-                type={"email"}
-                placeholder={"e.g. stephenking@lorem.com"}
-              />
-              <Input
-                name={"Phone Number"}
-                type={"tel"}
-                placeholder={"e.g. +1 234 567 890"}
-              />
-            </form>
+
+            
           </div>
         </section> */
 }

@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Step from "../components/Step";
+import Step from "@/components/Step";
+import YourInfo from "@/components/YourInfo";
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -20,8 +21,10 @@ export default function Home() {
           <Step num={4} name={"Summary"} active={false} />
         </aside>
         <div className="lg:mx-auto lg:grid lg:place-content-between">
-          <section className="mx-auto mt-20 h-[375px] w-[clamp(21.44rem,calc(19.08rem+10.05vw),28.13rem)] bg-marineBlue lg:mt-11"></section>
-          <div className="absolute bottom-0 left-0 right-0 z-10 bg-white p-4 text-sm lg:static lg:bg-opacity-0 ">
+          <section className="mx-auto mb-24 mt-20 w-[min(23.5rem,100%)] rounded-lg bg-white px-6 py-8 lg:mb-0 lg:mt-11 lg:w-[clamp(21.44rem,calc(18.95rem+10.61vw),28.50rem)] lg:rounded-none lg:p-0">
+            <YourInfo />
+          </section>
+          <div className="fixed bottom-0 left-0 right-0 z-10 bg-white p-4 text-sm lg:static lg:bg-opacity-0 lg:px-0">
             <button className="ml-auto block rounded-md bg-marineBlue px-4 py-3 font-medium text-white lg:px-6 lg:text-base">
               Next Step
             </button>
