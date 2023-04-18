@@ -6,6 +6,9 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      lg: "42.5rem",
+    },
     colors: {
       marineBlue: "hsl(213, 96%, 18%)",
       purplishBlue: "hsl(243, 100%, 62%)",
