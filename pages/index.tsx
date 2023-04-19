@@ -2,12 +2,15 @@ import Head from "next/head";
 import Step from "@/components/Step";
 // import YourInfo from "@/components/YourInfo";
 // import SelectPlan from "@/components/SelectPlan";
-import AddOns from "@/components/AddOns";
+// import AddOns from "@/components/AddOns";
+// import Summary from "@/components/Summary";
+import ThankYou from "@/components/ThankYou";
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function Home() {
+  const finished = true;
   return (
     <>
       <Head>
@@ -22,16 +25,23 @@ export default function Home() {
           <Step num={3} name={"Add-ons"} active={false} />
           <Step num={4} name={"Summary"} active={false} />
         </aside>
-        <div className="lg:mx-auto lg:grid lg:place-content-between">
-          <section className="mx-auto mb-24 mt-20 w-[min(23.5rem,100%)] rounded-lg bg-white px-6 py-8 lg:mb-0 lg:mt-11 lg:w-[clamp(21.44rem,calc(18.95rem+10.61vw),28.50rem)] lg:rounded-none lg:p-0">
+        <div className={`lg:mx-auto lg:grid ${finished ? 'lg:place-content-center' : 'lg:place-content-between'}`}>
+          <section className={`mx-auto mb-24 mt-20 w-[min(23.5rem,100%)] rounded-lg bg-white px-6 lg:mb-0 lg:w-[clamp(21.44rem,calc(18.95rem+10.61vw),28.50rem)] lg:rounded-none lg:p-0 ${finished ? 'py-20 lg:mt-0 ' : 'py-8 lg:mt-11'}`}>
             {/* <YourInfo /> */}
             {/* <SelectPlan /> */}
-            <AddOns />
+            {/* <AddOns /> */}
+            {/* <Summary /> */}
+            <ThankYou />
           </section>
-          <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-between bg-white p-4 text-sm font-medium lg:static lg:bg-opacity-0 lg:px-0 lg:text-base">
+          <div
+            className={`fixed bottom-0 left-0 right-0 z-10 flex justify-between bg-white p-4 text-sm font-medium lg:static lg:bg-opacity-0 lg:px-0 lg:text-base ${
+              finished ? "hidden" : "flex"
+            }`}
+          >
             <button className="text-coolGray">Go Back</button>
             <button className="rounded-md bg-marineBlue px-4 py-3 text-white lg:px-6">
               Next Step
+              {/* Confirm */}
             </button>
           </div>
         </div>

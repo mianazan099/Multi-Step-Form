@@ -9,16 +9,24 @@ function Addon({
   info: string;
   price: string;
 }) {
-    const checked = false;
+  const checked = false;
   return (
-    <label className={`flex items-center justify-between rounded-lg border  p-4 ${checked ? 'border-purplishBlue bg-purplishBlue bg-opacity-5' : 'border-lightGray'}`}>
+    <label
+      className={`flex items-center justify-between rounded-lg border  p-4 ${
+        checked
+          ? "border-purplishBlue bg-purplishBlue bg-opacity-5"
+          : "border-lightGray"
+      }`}
+    >
       <div className="flex items-center gap-4 lg:gap-6">
         <input
           type="checkbox"
-          className="h-5 w-5 rounded checked:bg-purplishBlue focus:ring-0 focus:ring-offset-0 focus:checked:bg-purplishBlue border-lightGray"
+          className="h-5 w-5 rounded border-lightGray checked:bg-purplishBlue focus:ring-0 focus:ring-offset-0 focus:checked:bg-purplishBlue"
         />
         <div>
-          <p className="text-sm font-medium text-marineBlue lg:text-base">{name}</p>
+          <p className="text-sm font-medium text-marineBlue lg:text-base">
+            {name}
+          </p>
           <p className="text-xs text-coolGray lg:text-sm">{info}</p>
         </div>
       </div>
