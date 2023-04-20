@@ -4,10 +4,6 @@ function Addon({
   name,
   info,
   price,
-}: {
-  name: string;
-  info: string;
-  price: string;
 }) {
   const checked = false;
   return (

@@ -1,9 +1,6 @@
 export default function Heading({
   head,
   desc,
-}: {
-  head: string;
-  desc: string;
 }) {
   return (
     <div className="pb-10">

@@ -6,11 +6,6 @@ function Plan({
   name,
   price,
   selected,
-}: {
-  icon: string;
-  name: string;
-  price: string;
-  selected: boolean;
 }) {
   return (
     <div
