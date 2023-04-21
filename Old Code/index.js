@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Ubuntu } from "next/font/google";
-import Sidebar from "../components/Sidebar";
-import useMultiStepForm from "../lib/useMultiStepForm";
+import Sidebar from "./components/Sidebar";
+import useMultiStepForm from "./useMultiStepForm";
 import YourInfo from "/components/YourInfo";
 import SelectPlan from "/components/SelectPlan";
 import AddOns from "/components/AddOns";
@@ -13,9 +13,7 @@ export default function Home() {
   const {steps, step, goto, stepNum} = useMultiStepForm([<YourInfo />, <SelectPlan />, <AddOns />, <Summary />]);
   return (
     <>
-      <Head>
-        <title>Multi-step form</title>
-      </Head>
+ 
       <article className={`${ubuntu.className}`}>
         {/* h-screen w-screen p-4 lg:my-4 lg:flex lg:h-[37.5rem] lg:w-[min(58.75rem,100vw-2rem)] lg:justify-between lg:gap-4 lg:rounded-lg lg:bg-white`} */}
         <Sidebar goto={goto} stepNum={stepNum} />
