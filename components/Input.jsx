@@ -18,6 +18,7 @@ export default function Input({
         onInput={(e)=>setInput(e.target.value)}
         value={input}
         placeholder={placeholder}
+        required
       />
     </div>
   );
