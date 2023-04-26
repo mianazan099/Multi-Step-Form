@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 body {
-  @apply grid min-h-screen place-content-center bg-magnolia;
+  @apply bg-magnolia lg:grid lg:min-h-screen lg:place-content-center;
+  /* grid min-h-screen place-content-center */
+}
+
+* {
+  /* outline: 1px solid; */
 }
