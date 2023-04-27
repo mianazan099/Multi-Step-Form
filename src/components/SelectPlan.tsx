@@ -16,13 +16,13 @@ import Heading from "./Heading";
 // }
 
 export default function SelectPlan() {
-    return (
-        <>
-            <Heading
-                title="Select your plan"
-                description="You have the option of monthly or yearly billing."
-            />
-            {/* <div className="mb-6 grid gap-3 lg:mb-8 lg:grid-cols-3 lg:gap-[1.125rem]">
+  return (
+    <>
+      <Heading
+        title="Select your plan"
+        description="You have the option of monthly or yearly billing."
+      />
+      {/* <div className="mb-6 grid gap-3 lg:mb-8 lg:grid-cols-3 lg:gap-[1.125rem]">
                 mb-8   gap-[1.125rem]
                 <Plan
                     icon="/images/icon-arcade.svg"
@@ -43,7 +43,7 @@ export default function SelectPlan() {
                     selected={false}
                 />
             </div> */}
-            {/* <div className="flex justify-center gap-6 bg-purplishBlue bg-opacity-5 p-3.5">
+      {/* <div className="flex justify-center gap-6 bg-purplishBlue bg-opacity-5 p-3.5">
                 <p className="text-sm font-medium text-marineBlue lg:text-base">
                     Monthly
                 </p>
@@ -55,6 +55,6 @@ export default function SelectPlan() {
 
                 <p className="text-sm font-medium text-coolGray lg:text-base">Yearly</p>
             </div> */}
-        </>
-    );
+    </>
+  );
 }
