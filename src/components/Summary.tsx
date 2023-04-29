@@ -26,11 +26,11 @@ export default function Summary({ monthly, plan, addOns, updateFields }: Summary
         description="Double-check everything looks OK before confirming."
       />
       <div className="rounded-md bg-purplishBlue bg-opacity-5 p-4 pt-5 text-sm lg:p-6">
-        <div className="flex items-center justify-between border-b-[1px] border-lightGray pb-3 lg:pb-6">
+        <div className={`flex items-center justify-between ${!(addOns.length === 0) && 'border-b-[1px] border-lightGray pb-3 lg:pb-6'}`}>
           <p className="font-medium text-marineBlue text-base pb-1">{selectedPlan.name} {monthly ? '(Monthly)' : '(Yearly)'}</p>
           <p className="font-bold text-marineBlue text-base">${selectedPlanPrice}/{monthly ? 'mo' : 'yr'}</p>
         </div>
-        <div className="space-y-3 mt-4 lg:space-y-4 lg:mt-5">
+        <div className={`space-y-3 mt-4 lg:space-y-4 lg:mt-5 ${addOns.length === 0 && 'hidden'}`}>
           {addOns.sort().map(num => {
             let addonData = data.addOns[num]
             return (

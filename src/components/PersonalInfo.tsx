@@ -20,10 +20,9 @@ function Input({ name, type, placeholder, value, updateFields }: InputProps) {
         </p>
       </div>
       <input
-        className={`h-12 w-full text-marineBlue rounded-md border-lightGray focus:ring-purplishBlue focus:border-purplishBlue ${
-          !valid &&
+        className={`h-12 w-full text-marineBlue rounded-md border-lightGray focus:ring-purplishBlue focus:border-purplishBlue ${!valid &&
           "border-strawberryRed focus:ring-strawberryRed focus:border-strawberryRed"
-        }`}
+          }`}
         type={type}
         placeholder={placeholder}
         value={value}
