@@ -10,27 +10,24 @@ type AddonProps = {
   updateFields: (fields: { addOns: number[] }) => void;
 }
 
-// 
-
 function Addon({ id, name, info, price, addOns, updateFields }: AddonProps) {
   const checked = addOns.includes(id);
   return (
     <label
-      className={`flex items-center justify-between rounded-lg border p-4 ${checked ? "border-purplishBlue bg-purplishBlue bg-opacity-5" : "border-lightGray"} `}
-      onClick={() => {
-        if (addOns.includes(id)) {
-          let newArr = addOns.filter(i => { return i !== id })
-          console.log(newArr)
-          updateFields({ addOns: newArr })
-        } else {
-          updateFields({ addOns: [...addOns, id] })
-        }
-      }}
+      className={`flex items-center justify-between rounded-lg border p-4 ${checked ? "border-purplishBlue bg-purplishBlue bg-opacity-5" : "border-lightGray"} focus-within:ring-purplishBlue focus-within:ring-2`}
     >
       <div className="flex items-center gap-4 lg:gap-6">
         <input
           type="checkbox"
           checked={checked}
+          onChange={() => {
+            if (addOns.includes(id)) {
+              let newArr = addOns.filter(i => { return i !== id })
+              updateFields({ addOns: newArr })
+            } else {
+              updateFields({ addOns: [...addOns, id] })
+            }
+          }}
           className="h-5 w-5 rounded border-lightGray checked:bg-purplishBlue focus:checked:bg-purplishBlue hover:checked:bg-purplishBlue focus:ring-0 focus:ring-offset-0"
         />
         <div>

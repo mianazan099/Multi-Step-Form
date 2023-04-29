@@ -40,7 +40,7 @@ export default function Home() {
       <PersonalInfo {...data} updateFields={updateFields} />,
       <SelectPlan {...data} updateFields={updateFields} />,
       <AddOns {...data} updateFields={updateFields} />,
-      <Summary />,
+      <Summary {...data} updateFields={updateFields} />,
     ]);
 
   return (
