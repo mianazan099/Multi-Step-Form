@@ -16,6 +16,7 @@ type FormData = {
   number: string;
   monthly: boolean;
   plan: number;
+  addOns: number[]
 };
 
 const INIT_DATA: FormData = {
@@ -24,6 +25,7 @@ const INIT_DATA: FormData = {
   number: "",
   monthly: true,
   plan: 0,
+  addOns: [0]
 };
 
 export default function Home() {
@@ -37,7 +39,7 @@ export default function Home() {
     useMultiStepForm([
       <PersonalInfo {...data} updateFields={updateFields} />,
       <SelectPlan {...data} updateFields={updateFields} />,
-      <AddOns />,
+      <AddOns {...data} updateFields={updateFields} />,
       <Summary />,
     ]);
 
@@ -49,7 +51,7 @@ export default function Home() {
 
       <article
         className={`${ubuntu.className} p-4 lg:flex lg:w-[min(58.75rem,100vw-2rem)] lg:my-4 lg:rounded-lg lg:bg-white lg:h-[37.5rem] lg:gap-4`}
-        // ${finished ? "lg:place-content-center" : "lg:place-content-between"}
+      // ${finished ? "lg:place-content-center" : "lg:place-content-between"}
       >
         <Sidebar currentStepNum={currentStepNum} goto={goto} />
         <form
@@ -59,7 +61,7 @@ export default function Home() {
             if (!isLastStep) next();
             else console.log("done");
           }}
-          // ${finished ? " py-20 lg:mt-0 " : ""}
+        // ${finished ? " py-20 lg:mt-0 " : ""}
         >
           <div>{step}</div>
           <div className="fixed bottom-0 left-0 right-0 flex justify-between bg-white p-4 text-sm font-medium lg:static lg:bg-opacity-0 lg:px-0 lg:text-base">
@@ -72,9 +74,8 @@ export default function Home() {
               Go Back
             </button>
             <button
-              className={`rounded-md bg-marineBlue px-4 py-3 text-white ml-auto lg:px-6 hover:bg-opacity-80 ${
-                isLastStep && "bg-purplishBlue"
-              }`}
+              className={`rounded-md bg-marineBlue px-4 py-3 text-white ml-auto lg:px-6 hover:bg-opacity-80 ${isLastStep && "bg-purplishBlue"
+                }`}
             >
               {!isLastStep ? "Next Step" : "Confirm"}
             </button>
