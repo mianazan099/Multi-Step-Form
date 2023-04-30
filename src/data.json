@@ -30,31 +30,31 @@
   ],
   "addOns": [
     {
-    "id": 0,
-    "name": "Online service",
-    "info": "Access to multiplayer games",
-    "price": {
-      "monthly": 1,
-      "yearly": 10
+      "id": 0,
+      "name": "Online service",
+      "info": "Access to multiplayer games",
+      "price": {
+        "monthly": 1,
+        "yearly": 10
+      }
+    },
+    {
+      "id": 1,
+      "name": "Larger storage",
+      "info": "Extra 1TB of cloud save",
+      "price": {
+        "monthly": 2,
+        "yearly": 20
+      }
+    },
+    {
+      "id": 2,
+      "name": "Customizable profile",
+      "info": "Custom theme on your profile",
+      "price": {
+        "monthly": 2,
+        "yearly": 20
+      }
     }
-  },
-  {
-    "id": 1,
-    "name": "Larger storage",
-    "info": "Extra 1TB of cloud save",
-    "price": {
-      "monthly": 2,
-      "yearly": 20
-    }
-  },
-  {
-    "id": 2,
-    "name": "Customizable profile",
-    "info": "Custom theme on your profile",
-    "price": {
-      "monthly": 2,
-      "yearly": 20
-    }
-  }
-]
+  ]
 }
