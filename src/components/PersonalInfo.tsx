@@ -1,16 +1,21 @@
 import Heading from "./Heading";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type InputProps = {
   name: string;
   type: string;
   placeholder: string;
   value: string;
-  updateFields: (value: string) => void;
+  updateValue: (value: string) => void;
 };
 
-function Input({ name, type, placeholder, value, updateFields }: InputProps) {
+function Input({ name, type, placeholder, value, updateValue }: InputProps) {
   const [valid, setValid] = useState(true);
+  useEffect(() => {
+    if (value === "") setValid(false);
+    else if (value === "yweyertyfdhskadagwertsldkdgwuetwerlsgfliwetrtwe")
+      updateValue("");
+  }, []);
   return (
     <div className="text-sm">
       <div className="mb-1 flex justify-between">
@@ -20,16 +25,19 @@ function Input({ name, type, placeholder, value, updateFields }: InputProps) {
         </p>
       </div>
       <input
-        className={`h-12 w-full text-marineBlue rounded-md border-lightGray focus:ring-purplishBlue focus:border-purplishBlue ${
-          !valid &&
-          "border-strawberryRed focus:ring-strawberryRed focus:border-strawberryRed"
-        }`}
+        className={`
+          h-12 w-full rounded-md border-lightGray text-marineBlue focus:border-purplishBlue focus:ring-purplishBlue
+          ${
+            !valid &&
+            "border-strawberryRed focus:border-strawberryRed focus:ring-strawberryRed"
+          }
+        `}
         type={type}
         placeholder={placeholder}
         value={value}
         onInput={(e) => {
           let value = (e.target as HTMLTextAreaElement).value;
-          updateFields(value);
+          updateValue(value);
           setValid(!(value === ""));
         }}
         required
@@ -74,21 +82,21 @@ export default function PersonalInfo({
           type={"text"}
           placeholder={"e.g. Stephen King"}
           value={name}
-          updateFields={updateInputField("name")}
+          updateValue={updateInputField("name")}
         />
         <Input
           name={"Email Address"}
           type={"email"}
           placeholder={"e.g. stephenking@lorem.com"}
           value={email}
-          updateFields={updateInputField("email")}
+          updateValue={updateInputField("email")}
         />
         <Input
           name={"Phone Number"}
           type={"tel"}
           placeholder={"e.g. +1234567890"}
           value={number}
-          updateFields={updateInputField("number")}
+          updateValue={updateInputField("number")}
         />
       </div>
     </>

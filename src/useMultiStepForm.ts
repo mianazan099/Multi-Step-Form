@@ -4,16 +4,16 @@ export default function useMultiStepForm(steps: ReactElement[]) {
   const [currentStepNum, setCurrentStepNum] = useState(0);
 
   function next() {
-    setCurrentStepNum((i) => {
-      if (i >= steps.length - 1) return i;
-      return i + 1;
+    setCurrentStepNum((prevNum) => {
+      if (prevNum >= steps.length - 1) return prevNum;
+      return prevNum + 1;
     });
   }
 
   function back() {
-    setCurrentStepNum((i) => {
-      if (i <= 0) return i;
-      return i - 1;
+    setCurrentStepNum((prevNum) => {
+      if (prevNum <= 0) return prevNum;
+      return prevNum - 1;
     });
   }
 
@@ -27,8 +27,8 @@ export default function useMultiStepForm(steps: ReactElement[]) {
     step: steps[currentStepNum],
     isFirstStep: currentStepNum === 0,
     isLastStep: currentStepNum === steps.length - 1,
-    goto,
-    back,
     next,
+    back,
+    goto,
   };
 }

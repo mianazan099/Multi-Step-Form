@@ -7,34 +7,46 @@ type AddonProps = {
   info: string;
   price: number;
   addOns: number[];
+  monthly: boolean;
   updateFields: (fields: { addOns: number[] }) => void;
 };
 
-function Addon({ id, name, info, price, addOns, updateFields }: AddonProps) {
+function Addon({
+  id,
+  name,
+  info,
+  price,
+  addOns,
+  monthly,
+  updateFields,
+}: AddonProps) {
   const checked = addOns.includes(id);
+
   return (
     <label
-      className={`flex items-center justify-between rounded-lg border p-4 ${
-        checked
-          ? "border-purplishBlue bg-purplishBlue bg-opacity-5"
-          : "border-lightGray"
-      } focus-within:ring-purplishBlue focus-within:ring-2`}
+      className={`
+        flex items-center justify-between rounded-lg border p-4
+        ${
+          checked
+            ? "border-purplishBlue bg-purplishBlue bg-opacity-5"
+            : "border-lightGray"
+        }
+        focus-within:ring-2 focus-within:ring-purplishBlue
+      `}
     >
       <div className="flex items-center gap-4 lg:gap-6">
         <input
           type="checkbox"
           checked={checked}
           onChange={() => {
-            if (addOns.includes(id)) {
-              let newArr = addOns.filter((i) => {
-                return i !== id;
-              });
+            if (checked) {
+              let newArr = addOns.filter((i) => i !== id);
               updateFields({ addOns: newArr });
             } else {
               updateFields({ addOns: [...addOns, id] });
             }
           }}
-          className="h-5 w-5 rounded border-lightGray checked:bg-purplishBlue focus:checked:bg-purplishBlue hover:checked:bg-purplishBlue focus:ring-0 focus:ring-offset-0"
+          className="h-5 w-5 rounded border-lightGray checked:bg-purplishBlue hover:checked:bg-purplishBlue focus:ring-0 focus:ring-offset-0 focus:checked:bg-purplishBlue"
         />
         <div>
           <p className="text-sm font-medium text-marineBlue lg:text-base">
@@ -43,7 +55,9 @@ function Addon({ id, name, info, price, addOns, updateFields }: AddonProps) {
           <p className="text-xs text-coolGray lg:text-sm">{info}</p>
         </div>
       </div>
-      <p className="text-xs text-purplishBlue lg:text-sm">{`+$${price}/mo`}</p>
+      <p className="text-xs text-purplishBlue lg:text-sm">
+        ${price}/{monthly ? "mo" : "yr"}
+      </p>
     </label>
   );
 }
@@ -77,6 +91,7 @@ export default function AddOns({
             info={addon.info}
             price={monthly ? addon.price.monthly : addon.price.yearly}
             addOns={addOns}
+            monthly={monthly}
             updateFields={updateFields}
           />
         ))}
